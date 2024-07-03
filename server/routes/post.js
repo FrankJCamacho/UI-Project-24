@@ -5,7 +5,7 @@ const router = express.Router();
 
 // 2. create all routes to access database
 router
-  .post('/find', async (req, res) => {
+  .post('/findPost', async (req, res) => {
     try {
         const post = await Post.findPost(req.body)
         res.send({...post})
@@ -14,7 +14,7 @@ router
       }
   })
 
-  .post('/create', async (req, res) => {
+  .post('/newPost', async (req, res) => {
     try {
         const post = await Post.newPost(req.body)
         res.send({...post})
@@ -25,7 +25,7 @@ router
 
   .put('/update', async (req, res) => {
     try {
-        let post = await Post.updatePostTitle(req.body)
+        const post = await Post.updatePostTitle(req.body)
         res.send({...post})
       } catch(err) {
         res.status(401).send({message: err.message})
