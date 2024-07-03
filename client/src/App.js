@@ -1,4 +1,5 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./components/About.js";
 import Navbar from './components/Navbar.js';
 import Login from './components/Login.js';
@@ -6,16 +7,18 @@ import Register from './components/Register.js';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <h1 className="text-center">Welcome! Please login or register below!</h1>
-      <Login />
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navbar />}>
+            <Route index element={<About />} />
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route path="profile" element={<Profile />} />
 
-      <hr />
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
-      <Register />
-      
-      <About />
     </div>
   );
 }
