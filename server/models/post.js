@@ -5,8 +5,7 @@ const mongoose = require("mongoose");
 const postSchema = new mongoose.Schema({
   user: { type: String, required: true}, //user id
   post_title: { type: String, required: true},
-  post_description: { type: String, required: true},
-  post_likes: { type: Number}
+  post_description: { type: String, required: true}
 })
 
 // 3. create model of schema
